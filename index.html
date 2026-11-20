@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bay Sensor · ลงโปรแกรม</title>
+<script type="module" src="https://unpkg.com/esp-web-tools@10.1.0/dist/web/install-button.js?module"></script>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{font:17px/1.55 system-ui,sans-serif;margin:0;background:#121418;color:#e9eaee}
+main{max-width:560px;margin:auto;padding:24px 16px 48px}
+h1{font-size:26px;color:#ED1E24;margin:8px 0 2px}
+.sub{color:#9aa0ab;margin:0 0 20px}
+.c{background:#1c1f26;border:1px solid #2a2e37;border-radius:14px;padding:18px;margin:0 0 14px}
+.c h2{font-size:15px;color:#9aa0ab;font-weight:600;margin:0 0 10px}
+ol{margin:0;padding-left:22px}li{margin:0 0 8px}
+button{font:inherit;font-weight:700;width:100%;min-height:54px;border-radius:12px;border:0;background:#ED1E24;color:#fff;cursor:pointer}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.k{color:#9aa0ab;font-size:14px}
+.warn{border-left:4px solid #e0a020}
+</style>
+<main>
+<h1>Bay Sensor</h1>
+<p class="sub">ลงโปรแกรมบอร์ดใหม่ทั้งบอร์ดผ่านสาย USB · รุ่น <b id="v">—</b></p>
+<script>fetch("manifest.json").then(r=>r.json()).then(m=>v.textContent=m.version)</script>
+
+<div class="c">
+<h2>ขั้นตอน</h2>
+<ol>
+<li>เปิดหน้านี้ด้วย Chrome หรือ Edge บนคอมพิวเตอร์</li>
+<li>เสียบสาย USB จากบอร์ดเข้าคอม (ใช้สายที่ส่งข้อมูลได้)</li>
+<li>กดปุ่มด้านล่าง แล้วเลือกพอร์ตของบอร์ด</li>
+<li>ถ้าถามว่าจะล้างข้อมูลไหม: ติ๊กล้าง = เริ่มใหม่ทั้งหมด (ต้องตั้ง WiFi และวัดพื้นใหม่) · ไม่ติ๊ก = เก็บค่าเดิมไว้</li>
+<li>รอจนขึ้นว่าเสร็จ (ราว 1-2 นาที) ห้ามถอดสายระหว่างลง</li>
+</ol>
+</div>
+
+<div class="c">
+<esp-web-install-button manifest="manifest.json">
+<button slot="activate">ลงโปรแกรม Bay Sensor</button>
+<span slot="unsupported">เบราว์เซอร์นี้ลงโปรแกรมไม่ได้ ใช้ Chrome หรือ Edge บนคอมพิวเตอร์</span>
+<span slot="not-allowed">ต้องเปิดหน้านี้ผ่าน https</span>
+</esp-web-install-button>
+</div>
+
+<div class="c warn">
+<h2>หาพอร์ตไม่เจอ</h2>
+<p class="k" style="margin:0">เปลี่ยนสาย USB (สายชาร์จอย่างเดียวใช้ไม่ได้) · ถ้ายังไม่เจอ ให้ติดตั้งไดรเวอร์ CP210x หรือ CH340 ตามชิป USB บนบอร์ด · ถ้าเชื่อมต่อไม่ได้ ให้กดปุ่ม BOOT บนบอร์ดค้างไว้ตอนเริ่มลง</p>
+</div>
+
+<div class="c">
+<h2>บอร์ดที่ติดตั้งแล้ว</h2>
+<p class="k" style="margin:0">ไม่ต้องถอดมาลงที่นี่ บอร์ดอัปเดตเองทาง WiFi วันละครั้งตอนตี 3-5 หรือกด "ตรวจอัปเดต" ในหน้าตั้งค่าของบอร์ด</p>
+</div>
+</main>
+</html>
