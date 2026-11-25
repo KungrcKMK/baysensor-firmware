@@ -21,8 +21,8 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 </style>
 <main>
 <h1>Bay Sensor</h1>
-<p class="sub">ลงโปรแกรมบอร์ดใหม่ทั้งบอร์ดผ่านสาย USB · รุ่น <b id="v">—</b></p>
-<script>fetch("manifest.json").then(r=>r.json()).then(m=>v.textContent=m.version)</script>
+<p class="sub">ลงโปรแกรมบอร์ดใหม่ทั้งบอร์ดผ่านสาย USB · เลือกแบบที่ร้านใช้</p>
+<script>for(const[f,i]of[["manifest.json","v"],["manifest_direct.json","vd"]])fetch(f).then(r=>r.json()).then(m=>document.getElementById(i).textContent=m.version)</script>
 
 <div class="c">
 <h2>ขั้นตอน</h2>
@@ -36,8 +36,20 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 </div>
 
 <div class="c">
+<h2>แบบที่ 1 · ใช้กับคอมที่ร้าน (มีกล้อง) · รุ่น <b id="v">—</b></h2>
+<p class="k">บอร์ดวัดระยะส่งให้โปรแกรมบนคอม คอมเป็นตัวนับและถ่ายรูป</p>
 <esp-web-install-button manifest="manifest.json">
 <button slot="activate">ลงโปรแกรม Bay Sensor</button>
+<span slot="unsupported">เบราว์เซอร์นี้ลงโปรแกรมไม่ได้ ใช้ Chrome หรือ Edge บนคอมพิวเตอร์</span>
+<span slot="not-allowed">ต้องเปิดหน้านี้ผ่าน https</span>
+</esp-web-install-button>
+</div>
+
+<div class="c">
+<h2>แบบที่ 2 · บอร์ดอย่างเดียว ไม่มีกล้อง ไม่มีคอม · รุ่น <b id="vd">—</b></h2>
+<p class="k">บอร์ดนับรถเองแล้วส่งยอดเข้าระบบกลางทาง WiFi · หลังลงเสร็จ ใส่รหัสบอร์ด (ขอจากผู้ดูแล) ที่หน้าเว็บของบอร์ด หัวข้อ "ส่งยอดเข้าระบบกลาง" · ห้ามใช้ในช่องที่มีคอมนับอยู่แล้ว รถจะถูกนับ 2 ครั้ง</p>
+<esp-web-install-button manifest="manifest_direct.json">
+<button slot="activate">ลงโปรแกรม Bay Sensor Direct</button>
 <span slot="unsupported">เบราว์เซอร์นี้ลงโปรแกรมไม่ได้ ใช้ Chrome หรือ Edge บนคอมพิวเตอร์</span>
 <span slot="not-allowed">ต้องเปิดหน้านี้ผ่าน https</span>
 </esp-web-install-button>
@@ -50,7 +62,7 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 
 <div class="c">
 <h2>บอร์ดที่ติดตั้งแล้ว</h2>
-<p class="k" style="margin:0">ไม่ต้องถอดมาลงที่นี่ บอร์ดอัปเดตเองทาง WiFi ทุกครั้งที่เปิดบอร์ด (ตั้งแต่รุ่น 1.4.2)</p>
+<p class="k" style="margin:0">ไม่ต้องถอดมาลงที่นี่ บอร์ดอัปเดตเองทาง WiFi ทุกครั้งที่เปิดบอร์ด (ตั้งแต่รุ่น 1.4.2) · แต่ละแบบได้อัปเดตของแบบตัวเองเท่านั้น ไม่สลับกัน</p>
 </div>
 </main>
 </html>
