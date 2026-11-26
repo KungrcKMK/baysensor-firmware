@@ -1,1 +1,1 @@
-{"name":"Bay Sensor Direct","version":"1.0.0","new_install_prompt_erase":true,"builds":[{"chipFamily":"ESP32","parts":[{"path":"web_direct.bin","offset":0}]}]}
+{"name":"Bay Sensor Direct","version":"1.0.1","new_install_prompt_erase":true,"builds":[{"chipFamily":"ESP32","parts":[{"path":"web_direct.bin","offset":0}]}]}
