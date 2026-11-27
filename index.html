@@ -18,6 +18,16 @@ button{font:inherit;font-weight:700;width:100%;min-height:54px;border-radius:12p
 button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .k{color:#9aa0ab;font-size:14px}
 .warn{border-left:4px solid #e0a020}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.s{background:#15171c;border:1px solid #2a2e37;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px}
+.s .k{font-size:14px;line-height:1.45}
+.n{width:28px;height:28px;border-radius:50%;background:#ED1E24;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.q{font-weight:600;margin:16px 0 8px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.ok,.bad{border-radius:12px;padding:12px;font-size:14px;line-height:1.5}
+.ok{background:#12301f;border:1px solid #1f6f3f;color:#d7ffe6}
+.bad{background:#3a1416;border:1px solid #6b1f22;color:#ffd7d9}
+.t{display:inline-block;padding:2px 10px;border-radius:99px;font-weight:700;font-size:14px;margin-right:6px}
 </style>
 <main>
 <h1>Bay Sensor</h1>
@@ -26,15 +36,23 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 
 <div class="c">
 <h2>ขั้นตอน</h2>
-<ol>
-<li>เปิดหน้านี้ด้วย Chrome หรือ Edge บนคอมพิวเตอร์</li>
-<li>เสียบสาย USB จากบอร์ดเข้าคอม (ใช้สายที่ส่งข้อมูลได้)</li>
-<li>กดปุ่มด้านล่าง แล้วเลือกพอร์ตของบอร์ด</li>
-<li>ถ้าถามว่าจะล้างข้อมูลไหม: ติ๊กล้าง = เริ่มใหม่ทั้งหมด (ต้องตั้ง WiFi และวัดพื้นใหม่) · ไม่ติ๊ก = เก็บค่าเดิมไว้</li>
-<li>รอจนขึ้นว่าเสร็จ (ราว 1-2 นาที) ห้ามถอดสายระหว่างลง</li>
-<li>ตั้ง WiFi ร้าน:
- <b>ทั้ง 2 แบบ</b> กด <b>Next</b> ในหน้าต่างเดิม จะขึ้นช่องให้เลือก WiFi และใส่รหัสทันที (ถ้าปิดหน้าต่างไปแล้ว กดปุ่มลงโปรแกรมอีกครั้ง เลือกพอร์ตเดิม แล้วกด <b>Configure Wi-Fi</b>) · ถ้าไม่ขึ้นช่องตั้ง WiFi: ถอดสาย เปิดไฟบอร์ด แล้วใช้มือถือต่อ WiFi ชื่อ <b>BaySensor-xxxx</b> (รหัส carcare1234) หน้าตั้งค่าจะเด้งขึ้นเอง</li>
-</ol>
+<div class="g">
+<div class="s"><span class="n">1</span><b>ต่อสายเข้าคอม</b><span class="k">สาย USB ที่ส่งข้อมูลได้ บอร์ดใช้ไฟจากสาย ไม่ต้องเสียบไฟอื่น</span></div>
+<div class="s"><span class="n">2</span><b>เปิดหน้านี้</b><span class="k">ด้วย Chrome หรือ Edge บนคอมพิวเตอร์ (มือถือใช้ไม่ได้)</span></div>
+<div class="s"><span class="n">3</span><b>เลือกแบบให้ถูก</b><span class="k">กดปุ่มในการ์ดด้านล่าง: แบบที่ 1 ใช้กับคอมที่ร้าน · แบบที่ 2 บอร์ดอย่างเดียว</span></div>
+<div class="s"><span class="n">4</span><b>เลือกพอร์ต</b><span class="k">ชื่อมักเป็น CP210x, CH340 หรือ USB Serial แล้วกด Connect</span></div>
+</div>
+<p class="q">ถ้าถามว่าจะล้างข้อมูลในบอร์ดไหม</p>
+<div class="g2">
+<div class="ok"><b>ไม่ติ๊ก (ปกติ)</b><br>ค่าเดิมอยู่ครบ: WiFi ระยะพื้น รหัสบอร์ด รถที่ค้างส่ง · ลงเสร็จใช้งานต่อได้เลย</div>
+<div class="bad"><b>ติ๊กล้างข้อมูล</b><br>ลบทุกอย่าง ต้องตั้ง WiFi และวัดพื้นใหม่ รหัสบอร์ดกับรถที่ค้างส่งหาย · ใช้เมื่อบอร์ดรวนหรือย้ายร้าน</div>
+</div>
+<div class="g" style="margin-top:12px">
+<div class="s"><span class="n">5</span><b>รอจนขึ้นว่าเสร็จ</b><span class="k">ราว 1-2 นาที ห้ามถอดสายระหว่างลง</span></div>
+<div class="s"><span class="n">6</span><b>ตั้ง WiFi ร้าน</b><span class="k">กด <b>Next</b> ในหน้าต่างเดิม เลือก WiFi (2.4GHz) แล้วใส่รหัส · ปิดหน้าต่างไปแล้ว: กดปุ่มลงโปรแกรมอีกครั้ง เลือกพอร์ตเดิม แล้วกด <b>Configure Wi-Fi</b></span></div>
+<div class="s"><span class="n">7</span><b>ติดกลับที่เดิม</b><span class="k">ถอดสาย USB เสียบไฟเลี้ยงเดิม · ถ้าล้างข้อมูล เปิดหน้าเว็บของบอร์ด แล้วกด "วัดพื้น" ตอนช่องว่าง</span></div>
+</div>
+<p class="k" style="margin:12px 0 0">ช่องตั้ง WiFi ไม่ขึ้น: ถอดสาย เปิดไฟบอร์ด แล้วใช้มือถือต่อ WiFi ชื่อ <b>BaySensor-xxxx</b> (รหัส carcare1234) หน้าตั้งค่าจะเด้งขึ้นเอง</p>
 </div>
 
 <div class="c">
@@ -60,6 +78,13 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 <div class="c warn">
 <h2>หาพอร์ตไม่เจอ</h2>
 <p class="k" style="margin:0">เปลี่ยนสาย USB (สายชาร์จอย่างเดียวใช้ไม่ได้) · ถ้ายังไม่เจอ ให้ติดตั้งไดรเวอร์ CP210x หรือ CH340 ตามชิป USB บนบอร์ด · ถ้าเชื่อมต่อไม่ได้ ให้กดปุ่ม BOOT บนบอร์ดค้างไว้ตอนเริ่มลง</p>
+</div>
+
+<div class="c">
+<h2>หลังลงเสร็จ (แบบที่ 1) ดูการ์ด "ส่งยอดเข้าระบบกลาง" ในหน้าเว็บของบอร์ด</h2>
+<p style="margin:0 0 8px"><span class="t" style="background:#5a4410;color:#ffe9b0">ยังไม่ใส่รหัสบอร์ด</span><span class="k">ปกติ คอมร้านใส่ให้เองภายในราว 5 นาที</span></p>
+<p style="margin:0 0 8px"><span class="t" style="background:#1f6f3f;color:#d7ffe6">ส่งเข้าระบบได้</span><span class="k">บอร์ดนับและส่งยอดเองแล้ว</span></p>
+<p style="margin:0"><span class="t" style="background:#6b1f22;color:#ffd7d9">ส่งไม่ได้: …</span><span class="k">จดข้อความมาบอกผู้ดูแล</span></p>
 </div>
 
 <div class="c">
