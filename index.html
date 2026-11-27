@@ -31,15 +31,15 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 </style>
 <main>
 <h1>Bay Sensor</h1>
-<p class="sub">ลงโปรแกรมบอร์ดใหม่ทั้งบอร์ดผ่านสาย USB · เลือกแบบที่ร้านใช้</p>
-<script>for(const[f,i]of[["manifest.json","v"],["manifest_direct.json","vd"]])fetch(f).then(r=>r.json()).then(m=>document.getElementById(i).textContent=m.version)</script>
+<p class="sub">ลงโปรแกรมบอร์ดใหม่ทั้งบอร์ดผ่านสาย USB</p>
+<script>for(const[f,i]of[["manifest.json","v"]])fetch(f).then(r=>r.json()).then(m=>document.getElementById(i).textContent=m.version)</script>
 
 <div class="c">
 <h2>ขั้นตอน</h2>
 <div class="g">
 <div class="s"><span class="n">1</span><b>ต่อสายเข้าคอม</b><span class="k">สาย USB ที่ส่งข้อมูลได้ บอร์ดใช้ไฟจากสาย ไม่ต้องเสียบไฟอื่น</span></div>
 <div class="s"><span class="n">2</span><b>เปิดหน้านี้</b><span class="k">ด้วย Chrome หรือ Edge บนคอมพิวเตอร์ (มือถือใช้ไม่ได้)</span></div>
-<div class="s"><span class="n">3</span><b>เลือกแบบให้ถูก</b><span class="k">กดปุ่มในการ์ดด้านล่าง: แบบที่ 1 ใช้กับคอมที่ร้าน · แบบที่ 2 บอร์ดอย่างเดียว</span></div>
+<div class="s"><span class="n">3</span><b>กดลงโปรแกรม</b><span class="k">ปุ่มแดงในการ์ด "แบบที่ 1" ด้านล่าง</span></div>
 <div class="s"><span class="n">4</span><b>เลือกพอร์ต</b><span class="k">ชื่อมักเป็น CP210x, CH340 หรือ USB Serial แล้วกด Connect</span></div>
 </div>
 <p class="q">ถ้าถามว่าจะล้างข้อมูลในบอร์ดไหม</p>
@@ -60,16 +60,6 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 <p class="k">บอร์ดวัดระยะส่งให้โปรแกรมบนคอม คอมเป็นตัวนับและถ่ายรูป</p>
 <esp-web-install-button manifest="manifest.json">
 <button slot="activate">ลงโปรแกรม Bay Sensor</button>
-<span slot="unsupported">เบราว์เซอร์นี้ลงโปรแกรมไม่ได้ ใช้ Chrome หรือ Edge บนคอมพิวเตอร์</span>
-<span slot="not-allowed">ต้องเปิดหน้านี้ผ่าน https</span>
-</esp-web-install-button>
-</div>
-
-<div class="c">
-<h2>แบบที่ 2 · บอร์ดอย่างเดียว ไม่มีกล้อง ไม่มีคอม · รุ่น <b id="vd">—</b></h2>
-<p class="k">บอร์ดนับรถเองแล้วส่งยอดเข้าระบบกลางทาง WiFi · หลังลงเสร็จ ใส่รหัสบอร์ด (ขอจากผู้ดูแล) ที่หน้าเว็บของบอร์ด หัวข้อ "ส่งยอดเข้าระบบกลาง" · ห้ามใช้ในช่องที่มีคอมนับอยู่แล้ว รถจะถูกนับ 2 ครั้ง</p>
-<esp-web-install-button manifest="manifest_direct.json">
-<button slot="activate">ลงโปรแกรม Bay Sensor Direct</button>
 <span slot="unsupported">เบราว์เซอร์นี้ลงโปรแกรมไม่ได้ ใช้ Chrome หรือ Edge บนคอมพิวเตอร์</span>
 <span slot="not-allowed">ต้องเปิดหน้านี้ผ่าน https</span>
 </esp-web-install-button>
